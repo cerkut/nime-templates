@@ -5,7 +5,7 @@ This is a pandoc template and should not be edited.
 $endif$
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
-% \usepackage{pandoc/iclc}
+
 \conferenceinfo{NIME'17,}{May 15-19, 2017, Aalborg University Copenhagen, Denmark.}
 $if(linestretch)$
 \usepackage{setspace}
@@ -80,6 +80,7 @@ $endif$
 $endif$
 $if(listings)$
 \usepackage{listings}
+\lstset{breaklines=true}
 $endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
@@ -90,9 +91,6 @@ $endif$
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 \VerbatimFootnotes
-$endif$
-$if(tables)$
-\usepackage{longtable,booktabs}
 $endif$
 $if(graphics)$
 \usepackage{graphicx}
@@ -143,6 +141,30 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
 
+$if(tables)$
+\usepackage{longtable,booktabs}
+\makeatletter
+\let\oldlt\longtable
+\let\endoldlt\endlongtable
+\def\longtable{\@ifnextchar[\longtable@i \longtable@ii}
+\def\longtable@i[#1]{\begin{figure}[tbh]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt[#1]
+}
+\def\longtable@ii{\begin{figure}[t]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt
+}
+\def\endlongtable{\endoldlt
+\end{minipage}
+\twocolumn
+\end{figure}}
+\makeatother
+$endif$
+
+
 $if(title)$
 \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
 $endif$
@@ -160,6 +182,7 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
 
 \begin{document}
 $if(title)$

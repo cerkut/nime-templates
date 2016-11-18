@@ -112,6 +112,7 @@ For a list of supported languages, you can visit this page:
 If your favourite language isn't listed, perhaps a language with a
 similar syntax will still work.
 
+
 ## Figures
 
 Images should be included as figures, with captions provided and
@@ -120,6 +121,26 @@ image size to be changed during the editing and layout process, and
 consider this when referring to the figures in the text.
 
 ![*A descriptive caption should be given for all figures, understandable without reference to the rest of the article.*](images/pomeroy.jpg)
+
+## Tables
+
+Tables work (except the first page).
+
+  Format            File extension
+  ------------      --------------
+  MODS              .mods
+  BibLaTeX          .bib
+  BibTeX            .bibtex
+  RIS               .ris
+  EndNote           .enl
+  EndNote XML       .xml
+  ISI               .wos
+  MEDLINE           .medline
+  Copac             .copac
+  JSON citeproc     .json
+
+Table: Supported bibliography formats with file extension.
+
 
 # Conclusion
 
@@ -139,6 +160,8 @@ Again, if you have any questions or problems, please share them on the forum:
 
 Or email conference chair David Ogborn directly:
   ogbornd@mcmaster.ca
+
+
 
 # Video
 
