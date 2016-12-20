@@ -1,17 +1,17 @@
 ---
 title: 'NIME Proceedings Template for Markdown'
 author:
-  - name: Author one
-    affiliation: FixMe University for Address
+  - name: Ben Trovato
+    affiliation: Institute for Clarity in Documentation
     address: to be checked
-    email: nime2017@livecodeu.ca
-  - name: Author two
+    email: trovato@corporation.com
+  - name: G.K.M. Tobin
     affiliation: University of Bricolage Programming
     email: one@roulette.mx
-  - name: FixMe von ThreeAuthorPerLine
-    affiliation: University of Musical Expression
-    address: to be checked
-    email: nime2017@livecodeu.ca
+  - name: Lars Thørvald
+    affiliation: The Thørvald Group
+    address: 1 Thørvald Circle Hekla, Iceland
+    email: larst@affiliation.org
 abstract: |
   Replace this text with a 100-250 word abstract. You'll find it in the
   'metadata block' at the top of your markdown document), be sure that
