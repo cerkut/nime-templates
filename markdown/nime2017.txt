@@ -12,27 +12,40 @@ author:
     affiliation: The Thørvald Group
     address: 1 Thørvald Circle Hekla, Iceland
     email: larst@affiliation.org
+  - name: Lars Thørvald
+    affiliation: The Thørvald Group
+    address: 1 Thørvald Circle Hekla, Iceland
+    email: larst@affiliation.org
+  - name: Lars Thørvald
+    affiliation: The Thørvald Group
+    address: 1 Thørvald Circle Hekla, Iceland
+    email: larst@affiliation.org
 abstract: |
-  Replace this text with a 100-250 word abstract. You'll find it in the
-  'metadata block' at the top of your markdown document), be sure that
-  each line of the abstract is indented.
+  This paper provides a samle of an experimental markdown template for the NIME conference series. It conforms, somewhat loosely, to the formatting guidelines for the LaTeX template.
+  Replace this text with a 100-250 word abstract. You'll find it in the 'metadata block' at the top of your markdown document), be sure that each line of the abstract is indented.
   
 documentclass: nime-alternate
 bibliography: references.bib
+
 keywords: NIME, proceedings, markdown, template
-acmClass: See <http://www.acm.org/about/class/1998/> to obtain cat- egories and subject descriptors for classifying this paper. 
+
+<!-- FixMe: a double column breaks the code -->
+acmClass: See <http://www.acm.org/about/class/1998/> to obtain cat- egories and subject descriptors for classifying this paper. An example follows H.5.5 [Information Interfaces and Presentation] Sound and Music Computing, H.5.2 [Information Interfaces and Presentation] User Interfaces—Haptic I/O, I.2.9 [Artificial Intelligence] Robotics—Propelling mechanisms.
+
 ...
 
 # Introduction
 
-Welcome to the markdown template for the New Interfaces for Musical Expression (NIME) Conference, based on the International Conference on Live Coding 2016 template at <http://iclc.livecodenetwork.org/2016/>
+Welcome to the experimental markdown template for the New Interfaces for Musical Expression (NIME) Conference, based on the International Conference on Live Coding 2016 template at <http://iclc.livecodenetwork.org/2016/>
 
 <!-- FixMe: Indent -->
-This document is a guide to using markdown for NIME, and is itself written in markdown. For full understanding, refer to nime2017.txt to see the source of this document, and nime2017.pdf to see the typeset output. Use of this template is currently only recommended for those familiar with commandline tools.
+This document is a guide to using markdown for NIME, and is itself written in markdown. For full understanding, refer to nime2017.txt to see the source of this document, and nime2017.pdf to see the typeset output. Use of this template is currently only recommended for those familiar with command-line tools.
 
 We suggest you take a copy of this template (nime2017.txt), and use it as a starting point for your NIME paper.
 
-Preparing your submission using markdown will enable us to make proceedings available both in PDF files suitable for print, and in HTML suitable for the web. This is useful for making sure your paper is fully accessible, via Internet search, and with assistive technology such as screen readers for blind people. 
+Preparing your submission using markdown will enable us to make proceedings available both in PDF files suitable for print, and in HTML suitable for the web. This is useful for making sure your paper is fully accessible, via Internet search, and with assistive technology such as screen readers for visually-impaired people. 
+
+The remainder of this document is concerned with showing, in the context of an “actual” document, the markdwon format available for denoting the structure of a proceedings paper, rather than with giving rigorous descriptions or explanations of markdown.
 
 <!-- We recommend taking a straightforward approach to formatting your document.
 If you do not wish to use markdown, please do not be discouraged from submitting your paper. There is also a word document template available from the conference website.
@@ -40,11 +53,11 @@ If you do not wish to use markdown, please do not be discouraged from submitting
 
 # Learning and using markdown
 
-We are happy to answer any questions you have about markdown in connection with your conference submission.
+The best way to learn markdown is probably start at its project page: <http://daringfireball.net/projects/markdown/>.
 
-This is best done via our online community: <http://www.nime.org>
+We are happy to answer any questions you have about markdown in connection with your conference submission. This is best done via our online community: <http://www.nime.org>. Alternatively you may email the conference chairs directly: <papers@nime2017.org>
 
-Alternatively you may email the conference chairs directly: <mailto:cer@create.aau.dk>
+You may add footnotes like this [^1].
 
 ## Running pandoc {#pandoc}
 
@@ -98,27 +111,18 @@ articles, books, book chapters and items from conference proceedings.
 
 ## Code
 
-We have chosen a single column layout to better support code examples
-without having to break lines. The following shows how to include a
-code example with syntax highlighting:
+We have chosen a single column layout in html to better support code examples without having to break lines. The following shows how to include a code example with syntax highlighting:
 
 ~~~~ {.haskell}
 d1 $ every 3 (iter 4) $ brak $ "bd [sn [[sn bd] sn]]*1/3"
 ~~~~
 
-For a list of supported languages, you can visit this page:
-[http://johnmacfarlane.net/highlighting-kate/]
-
-If your favourite language isn't listed, perhaps a language with a
-similar syntax will still work.
+In two-column pdf, we have tried to ensure that code has line breaks and fits within a column. But you may need to manually adjust the whitespace of your code. For a list of supported languages, you can visit <http://johnmacfarlane.net/highlighting-kate/>. If your favourite language isn't listed, perhaps a language with a similar syntax will still work.
 
 
 ## Figures
 
-Images should be included as figures, with captions provided and
-formatted as shown in Figure 1. Be prepared for the page layout and
-image size to be changed during the editing and layout process, and
-consider this when referring to the figures in the text.
+Images should be included as figures, with captions provided and formatted as shown in Figure 1. Be prepared for the page layout and image size to be changed during the editing and layout process, and consider this when referring to the figures in the text.
 
 ![*A descriptive caption should be given for all figures, understandable without reference to the rest of the article.*](images/pomeroy.jpg)
 
@@ -182,3 +186,5 @@ Vimeo embedded:
 <iframe src="https://player.vimeo.com/video/67185300" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 # References
+
+[^1]: This is the first footnote. It starts a series of three footnotes that add nothing informational, but just give an idea of how footnotes work and look. It is a wordy one, just so you see how a longish one plays out.
