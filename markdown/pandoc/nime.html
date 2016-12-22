@@ -48,7 +48,7 @@ $if(subtitle)$
 $endif$
 <ul id="authorlist">
 $for(author)$
-<li>$author$</li>
+<li>$author.name$, $author.affiliation$, <a href="mailto:$author.email$">$author.email$</a></li>
 $endfor$
 </ul>
 $if(date)$
