@@ -3,21 +3,14 @@ title: 'NIME Proceedings Template for Markdown'
 author:
   - name: Ben Trovato
     affiliation: Institute for Clarity in Documentation
-    address: to be checked
+    address: 1932 Wallamaloo Lane Wallamaloo, New Zealand
     email: trovato@corporation.com
   - name: G.K.M. Tobin
     affiliation: University of Bricolage Programming
-    email: one@roulette.mx
-  - name: Lars Thørvald
-    affiliation: The Thørvald Group
-    address: 1 Thørvald Circle Hekla, Iceland
-    email: larst@affiliation.org
-  - name: Lars Thørvald
-    affiliation: The Thørvald Group
-    address: 1 Thørvald Circle Hekla, Iceland
-    email: larst@affiliation.org
-  - name: Lars Thørvald
-    affiliation: The Thørvald Group
+	address: P.O. Box 1212 Dublin, Ohio 43017-6221
+    email: webmaster@marysville-ohio.com
+  - name: Lars Thørväld
+    affiliation: The Thørväld Group
     address: 1 Thørvald Circle Hekla, Iceland
     email: larst@affiliation.org
 abstract: |
@@ -30,7 +23,7 @@ bibliography: references.bib
 keywords: NIME, proceedings, markdown, template
 
 <!-- FixMe: a double column breaks the code -->
-acmClass: See <http://www.acm.org/about/class/1998/> to obtain cat- egories and subject descriptors for classifying this paper. An example follows H.5.5 [Information Interfaces and Presentation] Sound and Music Computing, H.5.2 [Information Interfaces and Presentation] User Interfaces—Haptic I/O, I.2.9 [Artificial Intelligence] Robotics—Propelling mechanisms.
+acmClass: See <http://www.acm.org/about/class/1998/> to obtain categories and subject descriptors for classifying this paper. An example follows H.5.5 [Information Interfaces and Presentation] Sound and Music Computing, H.5.2 [Information Interfaces and Presentation] User Interfaces—Haptic I/O, I.2.9 [Artificial Intelligence] Robotics—Propelling mechanisms.
 
 ...
 
@@ -93,23 +86,29 @@ pandoc --template=pandoc/nime.latex --filter pandoc-citeproc -N nime2017.txt -o 
 For a higher quality output, add the option `--latex-engine=xelatex`
 to the above. You will need the [Inconsolata](http://levien.com/type/myfonts/inconsolata.html) and [Linux Libertine](http://www.linuxlibertine.org/index.php?id=91&L=1) opentype fonts installed.
 
-An example Makefile is also provided to run these commands for you.
+An example Makefile is also provided to run these commands for you. A simple
 
+~~~~ {.bash}
+make all
+~~~~
 
-Authors may be referenced in two ways; inline, e.g. @Schwitters32
-wrote the Ursonate sound poem, or in parenthesis, e.g. Ursonate is a
-sound poem [@Schwitters32]. Multiple references should be grouped
-together like so [@Schwitters32;@Miller56;@Greenewalt46].
+will produce both the .pdf and .html version of your paper, wherease 
 
-The pandoc command given in the [above section](#pandoc) will automatically
-render your references according to Chicago author-date style.
+~~~~ {.bash}
+make clean
+~~~~
 
-At the head of the markdown source file for this template, you will see an entry
-for "bibliography" that points to the file references.bib. Here you'll find
-examples of bibliography entries in BibLaTex format, including examples for
-articles, books, book chapters and items from conference proceedings.
+will remove them both [^2]. And finally, the third footnote [^3].
 
-## Code
+## Citations ##
+
+Citations to articles [@bowman:reasoning;@clark:pct;@braams:babel;@herlihy:methodology], conference proceedings [@clark:pct] or books [@salas:calculus;@Lamport:LaTeX] listed in the Bibliography section of your article will occur throughout the text of your article.
+
+The pandoc command given in the [above section](#pandoc) will automatically render your references according to Chicago author-date style.
+
+At the head of the markdown source file for this template, you will see an entry for "bibliography" that points to the file references.bib. Here you'll find examples of bibliography entries in BibLaTex format, including examples for articles, books, book chapters and items from conference proceedings.
+
+## Code ##
 
 We have chosen a single column layout in html to better support code examples without having to break lines. The following shows how to include a code example with syntax highlighting:
 
@@ -145,28 +144,6 @@ Tables work (except the first page).
 
 Table: Supported bibliography formats with file extension.
 
-
-# Conclusion
-
-We look forward to receiving your completed papers. Submission is through the
-online peer review system at http://NIME2016.mcmaster.ca only. Do not send papers
-directly by e-mail. In all cases, please submit a PDF version of your paper for
-peer review. At a later stage in preparing the proceedings, we may ask for the
-markdown or Word versions of your paper.
-
-## Acknowledgments
-
-At the end of the Conclusions, acknowledgements to people, projects, funding
-agencies, etc. can be included after the second-level heading “Acknowledgments”.
-
-Again, if you have any questions or problems, please share them on the forum:
-  http://lurk.org/groups/lcrn/
-
-Or email conference chair David Ogborn directly:
-  ogbornd@mcmaster.ca
-
-
-
 # Video
 
 YouTube video linked:
@@ -185,6 +162,24 @@ Vimeo embedded:
 
 <iframe src="https://player.vimeo.com/video/67185300" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
+
+# Conclusion #
+
+We look forward to receiving your completed papers. Submission is through the online peer review system at <https://precisionconference.com/~nime>. Please submit a PDF version of your paper for peer review. At a later stage in preparing the proceedings, we may ask for the markdown or Word versions of your paper.
+
+
+# Acknowledgments 
+
+
+This section is optional; it is a location for you to acknowledge grants, funding, editing assistance and what have you.
+
+NIME'17 chairs acknowledge LCRN chair David Ogborn <ogbornd@mcmaster.ca>. Please remember to visit their forum at <http://lurk.org/groups/lcrn/>.
+
+
 # References
 
 [^1]: This is the first footnote. It starts a series of three footnotes that add nothing informational, but just give an idea of how footnotes work and look. It is a wordy one, just so you see how a longish one plays out.
+
+[^2]: The second footnote. In the makefile, there is also an experimental .docx version, which can be extended by pandoc's --reference-docx switch.
+
+[^3]: Let's keep this one short.

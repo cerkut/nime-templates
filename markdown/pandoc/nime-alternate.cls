@@ -958,51 +958,7 @@
     ]
     \ignorespaces
 }
-\def\@xproof[#1]{%
-    \trivlist
-    \item[\hskip 10\p@\hskip \labelsep{\sc Proof #1.}]%
-    \ignorespaces
-}
-\def\qed{%
-    \unskip
-    \kern 10\p@
-    \begingroup
-        \unitlength\p@
-        \linethickness{.4\p@}%
-        \framebox(6,6){}%
-    \endgroup
-    \global\@qededtrue
-}
 
-\def\newdef#1#2{%
-    \expandafter\@ifdefinable\csname #1\endcsname
-        {\@definecounter{#1}%
-         \expandafter\xdef\csname the#1\endcsname{\@thmcounter{#1}}%
-         \global\@namedef{#1}{\@defthm{#1}{#2}}%
-         \global\@namedef{end#1}{\@endtheorem}%
-    }%
-}
-\def\@defthm#1#2{%
-    \refstepcounter{#1}%
-    \@ifnextchar[{\@ydefthm{#1}{#2}}{\@xdefthm{#1}{#2}}%
-}
-\def\@xdefthm#1#2{%
-    \@begindef{#2}{\csname the#1\endcsname}%
-    \ignorespaces
-}
-\def\@ydefthm#1#2[#3]{%
-    \trivlist
-    \item[%
-        \hskip 10\p@
-        \hskip \labelsep
-        {\it #2%
-%         \savebox\@tempboxa{#3}%
-         \saveb@x\@tempboxa{#3}%		% January 2008
-         \ifdim \wd\@tempboxa>\z@
-            \ \box\@tempboxa
-         \fi.%
-        }]%
-    \ignorespaces
 }
 \def\@begindef#1#2{%
     \trivlist
