@@ -144,6 +144,14 @@ Tables work (except the first page).
 
 Table: Supported bibliography formats with file extension.
 
+## Math Equations
+
+You may want to display math equations in three distinct styles: inline, numbered or non-numbered display. Each of the three are discussed in the next sections.
+
+Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., $f(k) = {n \choose k} p^{k}$; math expressions of the display style can be written in a pair of double dollar signs, e.g., $$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
+
+
+
 # Video
 
 YouTube video linked:
