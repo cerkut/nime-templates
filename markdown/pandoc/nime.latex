@@ -114,12 +114,14 @@ $endif$
             bookmarks=true,
             pdfauthor={$author-meta$},
             pdftitle={$title-meta$},
-            colorlinks=true,
-            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            colorlinks=false,
             pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
+
+
+% use monospace font for urls          
+% \urlstyle{same}
+          
+
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
@@ -170,10 +172,11 @@ $if(title)$
 $endif$
 $if(author)$
 \author{
-$for(author)$
-  $author.name$ \\
-  $author.affiliation$\\
-  \href{mailto:$author.email$}{$author.email$}
+  $for(author)$
+  $author.name$\\
+  \affaddr{$author.affiliation$}\\
+  \affaddr{$author.address$}\\
+  \email{$author.email$}
   $sep$ \and 
 $endfor$
 }
@@ -231,7 +234,7 @@ $else$
 $endif$
 $endif$
 
-\bibliographystyle{abbrv}
+\bibliographystyle{$bibliographystyle$}
 \bibliography{$biblio-files$}
 
 $endif$
