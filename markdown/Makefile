@@ -1,7 +1,7 @@
 all: nime2017.pdf nime2017.html
 
 nime2017.html: nime2017.txt references.bib
-	pandoc --template=pandoc/nime.html --filter pandoc-citeproc --number-sections --csl=./ieee.csl nime2017.txt -o nime2017.html
+	pandoc --template=pandoc/nime.html --latexmathml --filter pandoc-citeproc --number-sections --csl=./ieee.csl nime2017.txt -o nime2017.html
 
 nime2017.pdf: nime2017.txt references.bib pandoc/nime.latex pandoc/nime.sty
 	pandoc --template=pandoc/nime.latex --filter pandoc-citeproc --number-sections --csl=./ieee.csl nime2017.txt --listings -o nime2017.pdf
