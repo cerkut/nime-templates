@@ -1473,8 +1473,8 @@ Licensed under a Creative Commons Attribution 4.0 International License (CC BY 4
 \global\copyrightetc{}
 %\global\copyrightetc{Copyright remains with the author(s)}
 \toappear{\the\boilerplate\par\smallskip
-{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc.}
-
+%{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc.}
+{\confname{\the\conf}} \the\confinfo\par}
 
 %\DeclareFixedFont{\altcrnotice}{OT1}{tmr}{m}{n}{8}  % << patch needed for accenting e.g. Montreal - Gerry, May 2007
 %\DeclareFixedFont{\altconfname}{OT1}{tmr}{m}{it}{8}  % << patch needed for accenting in italicized confname - Gerry, May 2007
