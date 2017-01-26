@@ -835,13 +835,14 @@
 \quotation
 \fi}
 
+
 % -- Classification needs to be a bit smart due to optionals - Gerry/Georgia November 2nd. 1999
 \newcount\catcount
 \global\catcount=1
 
 \def\category#1#2#3{%
 \ifnum\catcount=1
-\section*{Categories and Subject Descriptors}
+\section*{ACM Classification Keywords}  % DLC
 \advance\catcount by 1\else{\unskip; }\fi
     \@ifnextchar [{\@category{#1}{#2}{#3}}{\@category{#1}{#2}{#3}[]}%
 }
@@ -849,7 +850,8 @@
 \def\@category#1#2#3[#4]{%
     \begingroup
         \let\and\relax
-            #1 [\textbf{#2}]%
+%            #1 [\textbf{#2}]% 
+            #1 #2%   % DLC
             \if!#4!%
                 \if!#3!\else : #3\fi
             \else
@@ -1475,6 +1477,46 @@ Licensed under a Creative Commons Attribution 4.0 International License (CC BY 4
 \toappear{\the\boilerplate\par\smallskip
 %{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc.}
 {\confname{\the\conf}} \the\confinfo\par}
+
+
+%% 
+% For the CCSXML 2012 Categories
+
+\let\@concepts\@empty
+% Support for CCSXML file
+\RequirePackage{comment}
+\excludecomment{CCSXML}
+
+% New concepts scheme
+%
+% The first argument is the significance, the
+% second is the concept(s)
+%
+\newcommand\ccsdesc[2][100]{%
+  \ccsdesc@parse#1~#2~}
+%
+% The parser of the expression Significance~General~Specific
+%
+\def\ccsdesc@parse#1~#2~#3~{%
+  \expandafter\ifx\csname CCS@#2\endcsname\relax
+    \expandafter\gdef\csname CCS@#2\endcsname{\textbullet\textbf{#2} $\to$ }%
+  \g@addto@macro{\@concepts}{\csname CCS@#2\endcsname}\fi
+  \expandafter\g@addto@macro\expandafter{\csname CCS@#2\endcsname}{%
+    \ifnum#1>499\textbf{#3; }\else
+    \ifnum#1>299\textit{#3; }\else
+    #3; \fi\fi}}
+
+\newcommand\printccsdesc{%
+  \ifx\@concepts\@empty\else
+  \if@twocolumn
+    \section*{CCS Concepts}
+    \@concepts
+    \else \small
+    \quotation{\@concepts}%
+    \fi
+    \fi}
+
+
 
 %\DeclareFixedFont{\altcrnotice}{OT1}{tmr}{m}{n}{8}  % << patch needed for accenting e.g. Montreal - Gerry, May 2007
 %\DeclareFixedFont{\altconfname}{OT1}{tmr}{m}{it}{8}  % << patch needed for accenting in italicized confname - Gerry, May 2007
